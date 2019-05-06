@@ -1,9 +1,10 @@
-// var newYorkCoords = [40.73, -74.0059];
-// var mapZoomLevel = 12;
-var newYorkCoords = L.map("map", {
-  center: [40.73, -74.0059],
-  zoom: 13
-});
+//// var newYorkCoords = [40.73, -74.0059];
+//// var mapZoomLevel = 12;
+// var newYorkCoords = L.map("map", {
+//   center: [40.73, -74.0059],
+//   zoom: 13,
+//   layers: [lightmap, darkmap, bikeStations]
+// });
 
 // Create the createMap function
 
@@ -23,12 +24,16 @@ var baseMaps = {
 };
 
   // Create an overlayMaps object to hold the bikeStations layer
-var overlayMaps = {
-  "Bike Stations": 
-};
+  var overlayMaps = {
+    "Bike Stations": bikeStations
+  };
 
   // Create the map object with options
-var 
+  var newYorkCoords = L.map("map", {
+    center: [40.73, -74.0059],
+    zoom: 13,
+    layers: [lightmap, darkmap, bikeStations]
+  });
 
   // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
 L.control.layers(baseMaps, overlayMaps, {
@@ -36,8 +41,12 @@ L.control.layers(baseMaps, overlayMaps, {
 }).addTo(newYorkCoords);
 
 // Create the createMarkers function
-
+function createMarkers(response) {
   // Pull the "stations" property off of response.data
+
+
+
+  
 
   // Initialize an array to hold bike markers
 
@@ -45,7 +54,7 @@ L.control.layers(baseMaps, overlayMaps, {
     // For each station, create a marker and bind a popup with the station's name
 
     // Add the marker to the bikeMarkers array
-
+}
   // Create a layer group made from the bike markers array, pass it into the createMap function
 
 
